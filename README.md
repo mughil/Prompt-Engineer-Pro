@@ -1,0 +1,74 @@
+# Prompt Engineer Pro
+
+A Claude [Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills) that turns rough prompts into well-specified, high-performing ones — with a consistent process, an honest scoring rubric, and an explanation of *why* each change helps, not just a rewrite.
+
+Prompt Engineer Pro treats prompt engineering as a discipline, not a one-off polish pass: **Analyze → Improve → Maximize**.
+
+- **Analyze** — score the prompt (0-100, five weighted dimensions), detect its domain, name contradictions or impossible constraints, flag recognizable anti-patterns.
+- **Improve** — apply the right structural pattern (zero-shot, few-shot, role-based, decomposition, chain-of-thought, critique-and-revise, planning), fill genuine gaps with clearly labeled assumptions, never silently change what you were actually asking for.
+- **Maximize** — tailor the result to the target model (Claude, ChatGPT, Gemini, Grok, Perplexity, Cursor/Copilot, Midjourney/image models), and scale output to how much the prompt actually needs — an already-excellent prompt gets light polish, not three redundant rewrites.
+
+## Why
+
+A prompt is a specification. Vague specifications produce inconsistent output not because the model is weak, but because it had to guess at intent, context, constraints, and success criteria that were obvious to the person writing the prompt and invisible to the model reading it. This skill's job is making that implicit knowledge explicit.
+
+## What you get back
+
+A structured review — score, breakdown, detected domain, feasibility rating, anti-patterns, strengths, weaknesses, missing information — followed by one to three tiers of rewritten prompt (only as many as the original actually needs), each improvement paired with a one-line reason, and an honest confidence rating on the rewrite itself.
+
+Every section of the output is conditional: a short, clean prompt that's already solid gets a short, clean review, not padded-out sections that don't apply.
+
+## Install
+
+Drop the `prompt-engineer-pro/` folder into your skills directory, or install the packaged `prompt-engineer-pro.skill` file directly if your Claude surface supports it (Claude.ai, Claude Code, Claude Cowork, and Claude API skill uploads all accept this format).
+
+```
+your-skills-directory/
+└── prompt-engineer-pro/
+    ├── SKILL.md
+    ├── references/
+    └── examples/
+```
+
+The `evals/` folder is development-only and is excluded automatically when packaging with `package_skill.py` — it doesn't need to ship with the installed skill.
+
+## Use
+
+Once installed, it triggers automatically when you ask to improve, rewrite, optimize, score, or critique a prompt — including "engineer this prompt," "make this better for [model]," or pasting a rough prompt and asking how to sharpen it. See the `description` field in `SKILL.md` for the exact trigger conditions, including what it deliberately does *not* trigger on (e.g., "write me a prompt for X" is a content request, not a prompt-engineering request).
+
+**Example:**
+
+> Use Prompt Engineer Pro on: "write about the best running shoes"
+
+Returns a score (likely Poor-tier — no audience, angle, or format specified), the specific gaps that caused it, and a tiered rewrite with a concrete angle and audience baked in.
+
+## What it won't do
+
+If the underlying request is for something that shouldn't be fulfilled regardless of phrasing — help with wrongdoing, generating harmful content, bypassing safety measures — the skill declines to optimize it rather than producing a more polished, more effective version of a harmful request. See `references/Prompt_Safety_Guidelines.md` and `examples/Safety_Boundary.md` for exactly where that line sits (it's narrower than you might expect — most sensitive-topic prompts, from security research to dark fiction, are completely fine to optimize; the line is about what's being asked *for*, not the topic's sensitivity).
+
+## Repository structure
+
+```
+prompt-engineer-pro/
+├── SKILL.md                    Entry point — workflow, triggers, output template
+├── references/                 22 reference files, loaded as needed (progressive disclosure)
+│   └── Domain_Templates/       Writing, Coding, Research, Marketing
+├── examples/                   7 worked walkthroughs, including the trickiest edge cases
+├── evals/                      20 test prompts + qualitative pass criteria (dev-only)
+├── MANIFEST.md                 Full file listing + key design decisions
+├── CHANGELOG.md                Version history
+├── ROADMAP.md                  Prioritized v2.0 feature roadmap
+├── RELEASE_NOTES.md            Human-readable notes for the current release
+├── CONTRIBUTING.md             How to propose a change and how it gets evaluated
+└── LICENSE                     MIT
+```
+
+See `MANIFEST.md` for the full file-by-file breakdown and the design decisions behind them (adaptive output, conditional output sections, no fabricated precision).
+
+## Contributing
+
+See `CONTRIBUTING.md`. Short version: this project follows the [skill-creator](https://github.com/anthropics/skills) iteration loop — draft, test against `evals/evals.json`, get qualitative review against `evals/EXPECTED_RESULTS.md`, revise. PRs that add scaffolding without an eval or a concrete failure case behind them are likely to get pushback — see Rule 3 in `references/Prompt_Rewrite_Rules.md` for why the skill itself is opinionated about over-scaffolding, and the project holds itself to the same standard.
+
+## License
+
+MIT — see `LICENSE`.
