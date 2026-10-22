@@ -121,6 +121,12 @@
       "name": "Reusable system prompt vs one-off task",
       "prompt": "Create a reusable system prompt for an assistant that handles customer-support questions across many conversations.",
       "expected_output": "Recognizes the reusable, persistent instruction context differs from a one-off task prompt; asks for or labels key policy, escalation, tone, and scope assumptions and structures reusable instructions."
+    },
+    {
+      "id": 21,
+      "name": "Prompt comparison",
+      "prompt": "Compare these two prompts and tell me which is better for the same task: A) 'Summarize this report.' B) 'Summarize the attached report for a nontechnical executive in five bullets, noting key risks and recommended next steps.'",
+      "expected_output": "Compares goal alignment and clarity, explains why B is more specified for the stated audience and output, avoids claiming empirical performance without testing, and may recommend B conditionally."
     }
   ]
 }
