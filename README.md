@@ -53,6 +53,16 @@ After setting up the skill or manual workflow, try:
 
 A working setup should identify missing context such as audience, purpose, and output format, then provide an improved prompt. This is a smoke test of the basic workflow, not a full quality evaluation.
 
+### Validation and evaluation: what each check proves
+
+These checks serve different purposes; passing one does not imply the others passed.
+
+1. **Repository and package validation (automated CI):** GitHub Actions checks repository integrity and builds the `.skill` and source ZIP archives, then checks that the archives are readable and contain expected files. This validates structure and packaging only. It does **not** install the skill into a live host, run prompts through a model, or measure response quality.
+2. **Installation smoke test (manual):** Install or configure the skill using one of the methods above, start a fresh conversation, and run the quick-check prompt. Confirm that the setup is available and produces a relevant rewrite. Record the host product and whether this test passed; do not treat one successful prompt as proof of broad quality.
+3. **Qualitative evaluation (manual):** Run the prompts in `evals/evals.json` through the skill in the intended host environment. Compare each response with the corresponding behavior criteria in `evals/EXPECTED_RESULTS.md`, mark **Pass / Partial / Fail**, and add a short evidence note. For failures, revise the smallest relevant rule and rerun the failed case plus adjacent cases.
+
+The evaluation suite uses human judgment, not exact-output matching. Unless a repeatable model-running harness and recorded results are added, describe results as qualitative review—not automated, statistical, or benchmark validation.
+
 ### Legacy archive warning
 
 **Do not use `files.zip` as the current release package.** It is a legacy archive and has not been regenerated to match the repaired source tree. Use the package built by the **Build skill packages** workflow instead. The tracked source tree is canonical.
@@ -96,8 +106,8 @@ prompt-engineer-pro/
 ├── MANIFEST.md                 Full file listing + key design decisions
 ├── CHANGELOG.md                Version history
 ├── ROADMAP.md                  Prioritized v2.0 feature roadmap
-├── RELEASE_NOTES.md            Human-readable notes for the current release
-├── CONTRIBUTING.md             How to propose a change and how it gets evaluated
+├── RELEASE_NOTES.md             Human-readable notes for the current release
+├── CONTRIBUTING.md              How to propose a change and how it gets evaluated
 └── LICENSE                     MIT
 ```
 
