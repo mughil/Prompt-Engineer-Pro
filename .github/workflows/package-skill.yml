@@ -1,0 +1,33 @@
+name: Build skill packages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Prepare installable skill folder
+        run: |
+          mkdir -p dist/prompt-engineer-pro
+          cp SKILL.md dist/prompt-engineer-pro/
+          cp -R references examples dist/prompt-engineer-pro/
+      - name: Build skill and source archives
+        run: |
+          cd dist
+          zip -qr prompt-engineer-pro.skill prompt-engineer-pro
+          cd ..
+          zip -qr dist/prompt-engineer-pro-source.zip             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md             references examples evals scripts .github
+      - name: Upload release packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: prompt-engineer-pro-v2.0.0
+          path: |
+            dist/prompt-engineer-pro.skill
+            dist/prompt-engineer-pro-source.zip
+          if-no-files-found: error
+          retention-days: 30
