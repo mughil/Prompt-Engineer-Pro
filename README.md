@@ -53,7 +53,7 @@ prompt-engineer-pro/
 ├── SKILL.md                    Entry point — workflow, triggers, output template
 ├── references/                 23 reference files, loaded as needed (progressive disclosure)
 │   └── Domain_Templates/       Writing, Coding, Research, Marketing
-├── examples/                   7 worked walkthroughs, including the trickiest edge cases
+├── examples/                   9 worked walkthroughs, including the trickiest edge cases
 ├── evals/                      21 test prompts + qualitative pass criteria (dev-only)
 ├── MANIFEST.md                 Full file listing + key design decisions
 ├── CHANGELOG.md                Version history
