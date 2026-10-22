@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Qualitative regression suite for Prompt Engineer Pro. These cases are judgment-based checks, not exact-output tests or claims of model performance.",
   "evals": [
     {
