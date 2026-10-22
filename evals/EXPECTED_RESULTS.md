@@ -24,6 +24,7 @@ This suite is reviewed qualitatively. Do not compare exact wording. A case passe
 | 18 | Empty input | Requests the missing prompt. |
 | 19 | Non-English prompt | Handles the language appropriately without misclassification. |
 | 20 | Reusable system prompt | Recognizes persistent instructions and covers scope, policy, tone, and escalation. |
+| 21 | Prompt comparison | Compares against shared criteria, explains trade-offs, and avoids unsupported performance claims. |
 
 ## How to run a review
 
