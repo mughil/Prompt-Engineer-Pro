@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.0 — Source recovery, reusable prompts, and comparison mode
+
+- Restored the missing reference guides, domain templates, seven worked examples, and qualitative evaluation suite to the tracked source tree.
+- Added dedicated workflows for reusable system prompts and comparing prompt variants, addressing both P0 gaps documented in the v2.0 roadmap.
+- Added a 21-case qualitative regression suite and documented pass criteria.
+- Added a Python source-integrity validator and GitHub Actions workflow to check referenced files and evaluation-suite structure on pushes and pull requests.
+- Corrected source/evaluation counts and refreshed the manifest and install documentation.
+
 ## v1.2.0 — Production-readiness pass
 
 - **Fixed stale cross-references.** `references/AIM_Framework.md`'s Analyze stage and Quick Reference table never mentioned `Domain_Detection.md` or `Feasibility_Assessment.md` after v1.1 added them to SKILL.md's step list — the two workflow descriptions had drifted apart. Synced.
