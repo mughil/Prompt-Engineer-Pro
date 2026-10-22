@@ -50,6 +50,6 @@ This project follows the [skill-creator](https://github.com/anthropics/skills) m
 This project uses `MAJOR.MINOR.PATCH`:
 - **PATCH** — drift fixes, documentation corrections, no behavior change (e.g., v1.1.1).
 - **MINOR** — new evals, new examples, new reference content, behavior refinements that don't change the core workflow (e.g., v1.2.0's Step 0 addition).
-- **MAJOR** — new workflow modes (e.g., system-prompt mode, comparison mode — see `ROADMAP.md`'s P0/P1 items, which are v2.0-targeted).
+- **MAJOR** — new workflow modes, such as reusable system-prompt mode and prompt-comparison mode.
 
 Add an entry to `CHANGELOG.md` for every change that ships, and update `MANIFEST.md`'s structure listing if you add or remove a file.
