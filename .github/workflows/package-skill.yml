@@ -23,6 +23,13 @@ jobs:
           zip -qr prompt-engineer-pro.skill prompt-engineer-pro
           cd ..
           zip -qr dist/prompt-engineer-pro-source.zip             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md .gitignore             references examples evals scripts .github
+      - name: Validate generated archives
+        run: |
+          unzip -t dist/prompt-engineer-pro.skill
+          unzip -t dist/prompt-engineer-pro-source.zip
+          unzip -l dist/prompt-engineer-pro.skill | grep -q 'prompt-engineer-pro/SKILL.md'
+          unzip -l dist/prompt-engineer-pro.skill | grep -q 'prompt-engineer-pro/references/System_Prompt_Guidelines.md'
+          unzip -l dist/prompt-engineer-pro-source.zip | grep -q 'evals/evals.json'
       - name: Upload release packages
         uses: actions/upload-artifact@v4
         with:
