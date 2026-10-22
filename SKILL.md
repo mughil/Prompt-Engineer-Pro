@@ -152,4 +152,4 @@ Read these as needed rather than all at once — most reviews only need 4-6 of t
 | `references/Prompt_Comparison_Guidelines.md` | When comparing two or more prompt variants |
 | `references/Domain_Templates/*.md` | When the prompt falls in a covered domain |
 
-For worked walkthroughs of the trickier cases — contradictions, true impossibility, honest confidence calibration, and the safety decline — see `examples/`. Reading one before a first-ever run of an unfamiliar case (e.g., the first time you hit an impossible constraint) is more useful than re-deriving the right shape from prose rules alone.
+For worked walkthroughs of the trickier cases — contradictions, true impossibility, honest confidence calibration, the safety boundary, reusable system prompts, and prompt comparison — see `examples/`, especially `examples/Reusable_System_Prompt.md` and `examples/Prompt_Comparison.md`. Reading one before a first-ever run of an unfamiliar case (e.g., the first time you hit an impossible constraint) is more useful than re-deriving the right shape from prose rules alone.
