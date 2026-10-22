@@ -21,7 +21,7 @@ jobs:
           cd dist
           zip -qr prompt-engineer-pro.skill prompt-engineer-pro
           cd ..
-          zip -qr dist/prompt-engineer-pro-source.zip             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md             references examples evals scripts .github
+          zip -qr dist/prompt-engineer-pro-source.zip             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md .gitignore             references examples evals scripts .github
       - name: Upload release packages
         uses: actions/upload-artifact@v4
         with:
