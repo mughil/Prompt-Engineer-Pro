@@ -31,18 +31,26 @@ These are the highest-value, highest-scrutiny contributions. Expect the review t
 
 ## How to test a change
 
-This project follows the [skill-creator](https://github.com/anthropics/skills) methodology:
+Keep three kinds of evidence separate:
+
+- **Structural validation:** `python scripts/validate_repo.py` and the GitHub Actions package workflow check repository integrity and archive contents. Passing these checks means the source/package structure is valid; it does not establish that a host can install the skill or that its responses are good.
+- **Installation smoke test:** install or configure the skill in the intended host environment, open a fresh conversation, and try the README's quick-check prompt. Record the host and result.
+- **Qualitative regression review:** run the prompts in `evals/evals.json` through the updated skill in the intended host and compare responses against `evals/EXPECTED_RESULTS.md`. Mark each case Pass / Partial / Fail with a short evidence note. This is judgment-based, not exact-match testing.
+
+For a behavior or content change, use this iteration loop:
 
 1. Make your change to `SKILL.md` or a reference file.
-2. Run the existing prompts in `evals/evals.json` through the updated skill (manually, or with an agent that has both the skill and subagent access).
-3. Check outputs against `evals/EXPECTED_RESULTS.md`'s pass criteria — these are qualitative (judgment-based), not exact-match assertions.
+2. Run the relevant prompts in `evals/evals.json` through the updated skill (manually, or with an agent that has both the skill and subagent access). For broader changes, review the full suite.
+3. Check outputs against `evals/EXPECTED_RESULTS.md`'s pass criteria — these are qualitative, not exact-match assertions.
 4. If your change is a new capability, add a new eval for it in the same PR — a feature without an eval is much more likely to regress silently later.
 5. Run `python scripts/validate_repo.py` locally. GitHub Actions also runs this integrity check on pushes and pull requests.
+
+Do not report installation or qualitative evaluation as complete unless you actually performed it. Do not describe the suite as automated or statistically validated unless a repeatable harness and recorded results exist.
 
 ## Style
 
 - Imperative form in instructions ("Score the prompt," not "The prompt should be scored").
-- Explain reasoning, not just rules — avoid heavy-handed ALL-CAPS MUSTs where a sentence explaining *why* would do the same job better and generalize further.
+- Explain reasoning, not just rules — avoid heavy-handed ALL-CAPS MUSTs where a sentence explaining *why* would do the same job and generalize further.
 - Keep `SKILL.md` lean — it's the file loaded into context on every trigger. New detail usually belongs in a `references/` file with a pointer from `SKILL.md`, not inline.
 
 ## Versioning
