@@ -4,7 +4,7 @@
 
 This release restores the missing tracked source files and implements the two P0 workflow gaps from the roadmap.
 
-- Restored reference guides, domain templates, seven worked examples, and a 21-case qualitative evaluation suite.
+- Restored reference guides, domain templates, nine worked examples, and a 21-case qualitative evaluation suite.
 - Added reusable system-prompt and prompt-comparison workflows with dedicated reference guides.
 - Added source-integrity validation and a GitHub Actions workflow for push and pull-request checks.
 - Updated the roadmap and documentation to reflect the implemented workflows.
