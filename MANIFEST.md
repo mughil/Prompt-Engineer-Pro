@@ -1,4 +1,4 @@
-# Manifest — prompt-engineer-pro v1.2.1
+# Manifest — prompt-engineer-pro v2.0.0
 
 ## Structure
 
