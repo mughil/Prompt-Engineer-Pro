@@ -29,14 +29,15 @@ try:
     if not isinstance(cases, list) or not cases:
         errors.append("evals/evals.json must contain a non-empty 'evals' array")
     else:
-        ids = [case.get("id") for case in cases]
         if any(not isinstance(case, dict) for case in cases):
             errors.append("Every evaluation case must be an object")
-        if len(ids) != len(set(ids)):
-            errors.append("Evaluation case IDs must be unique")
-        for case in cases:
-            if not case.get("name") or not isinstance(case.get("prompt"), str) or not case.get("expected_output"):
-                errors.append(f"Evaluation case is missing required fields: {case.get('id')}")
+        else:
+            ids = [case.get("id") for case in cases]
+            if len(ids) != len(set(ids)):
+                errors.append("Evaluation case IDs must be unique")
+            for case in cases:
+                if not case.get("name") or not isinstance(case.get("prompt"), str) or not case.get("expected_output"):
+                    errors.append(f"Evaluation case is missing required fields: {case.get('id')}")
 except (OSError, json.JSONDecodeError) as exc:
     errors.append(f"Cannot read valid evals/evals.json: {exc}")
 
