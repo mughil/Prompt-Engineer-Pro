@@ -24,14 +24,15 @@ Every section of the output is conditional: a short, clean prompt that's already
 
 ### Option A — Install as a Claude Skill
 
-1. Open the repository's **Actions** tab and select the latest successful **Build skill packages** run on `main`.
-2. In the **Artifacts** section, download the artifact named `prompt-engineer-pro-v2.0.0`.
-3. Extract the downloaded artifact ZIP. It contains the installable `prompt-engineer-pro.skill` package and the source ZIP.
-4. Use the `.skill` package only in a Claude environment that supports importing skill packages. Follow that environment's current skill-installation instructions.
-5. If your Claude environment expects a skills folder instead, extract the package and place the `prompt-engineer-pro/` folder in that environment's configured skills directory. The folder should contain `SKILL.md`, `references/`, and `examples/`.
-6. Enable the skill if the host environment requires it, then start a new conversation and try the test prompt below.
+1. Open the project's [GitHub Releases](https://github.com/mughil/Prompt-Engineer-Pro/releases) page.
+2. Open the latest stable release and download the `prompt-engineer-pro-vX.Y.Z.skill` asset. Download the source ZIP only if you need the development files.
+3. Use the `.skill` package only in a Claude environment that supports importing skill packages. Follow that environment's current skill-installation instructions.
+4. If your Claude environment expects a skills folder instead, extract the package and place the `prompt-engineer-pro/` folder in that environment's configured skills directory. The folder should contain `SKILL.md`, `references/`, and `examples/`.
+5. Enable the skill if the host environment requires it, then start a new conversation and try the test prompt below.
 
 The exact installation UI and supported import methods can vary by Claude product and account. If your environment does not offer skill import or a configured skills directory, do not assume the package can be installed there.
+
+**Maintainers:** pushing a version tag such as `v2.0.1` builds version-named packages and publishes them as assets on a GitHub Release. Pull-request and branch builds remain temporary workflow artifacts for validation; they are not stable download links.
 
 ### Option B — Use the instructions in ChatGPT manually
 
@@ -56,7 +57,7 @@ A working setup should identify missing context such as audience, purpose, and o
 
 **Do not use `files.zip` as the current release package.** It is a legacy archive and has not been regenerated to match the repaired source tree. Use the package built by the **Build skill packages** workflow instead. The tracked source tree is canonical.
 
-The workflow currently uploads a `prompt-engineer-pro-v2.0.0` artifact on pull requests and pushes to `main`. Workflow artifacts are temporary and expire after the configured retention period; they are intended for build verification, not as a permanent release location.
+Stable downloads are published as versioned assets on the [GitHub Releases page](https://github.com/mughil/Prompt-Engineer-Pro/releases) when a `v*` tag is pushed. Pull-request and branch builds use versioned workflow artifacts that expire after 30 days; use those artifacts for build verification, not as permanent release downloads.
 
 The installed skill should have this structure:
 

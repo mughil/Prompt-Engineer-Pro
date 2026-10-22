@@ -3,8 +3,12 @@ name: Build skill packages
 on:
   push:
     branches: [main]
+    tags: ["v*"]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   package:
@@ -12,30 +16,69 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set package version and artifact name
+        id: meta
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            version="${GITHUB_REF_NAME}"
+            artifact_name="prompt-engineer-pro-${version}"
+          else
+            version="dev-${GITHUB_RUN_NUMBER}"
+            if [[ -n "${{ github.event.pull_request.number }}" ]]; then
+              artifact_name="prompt-engineer-pro-pr-${{ github.event.pull_request.number }}-${GITHUB_RUN_NUMBER}"
+            else
+              artifact_name="prompt-engineer-pro-main-${GITHUB_RUN_NUMBER}"
+            fi
+          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=${artifact_name}" >> "$GITHUB_OUTPUT"
+
       - name: Prepare installable skill folder
         run: |
           mkdir -p dist/prompt-engineer-pro
           cp SKILL.md dist/prompt-engineer-pro/
           cp -R references examples dist/prompt-engineer-pro/
+
       - name: Build skill and source archives
+        env:
+          VERSION: ${{ steps.meta.outputs.version }}
         run: |
           cd dist
-          zip -qr prompt-engineer-pro.skill prompt-engineer-pro
+          zip -qr "prompt-engineer-pro-${VERSION}.skill" prompt-engineer-pro
           cd ..
-          zip -qr dist/prompt-engineer-pro-source.zip             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md .gitignore             references examples evals scripts .github
+          zip -qr "dist/prompt-engineer-pro-${VERSION}-source.zip" \
+            SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md .gitignore \
+            references examples evals scripts .github
+
       - name: Validate generated archives
+        env:
+          VERSION: ${{ steps.meta.outputs.version }}
         run: |
-          unzip -t dist/prompt-engineer-pro.skill
-          unzip -t dist/prompt-engineer-pro-source.zip
-          unzip -l dist/prompt-engineer-pro.skill | grep -q 'prompt-engineer-pro/SKILL.md'
-          unzip -l dist/prompt-engineer-pro.skill | grep -q 'prompt-engineer-pro/references/System_Prompt_Guidelines.md'
-          unzip -l dist/prompt-engineer-pro-source.zip | grep -q 'evals/evals.json'
-      - name: Upload release packages
+          unzip -t "dist/prompt-engineer-pro-${VERSION}.skill"
+          unzip -t "dist/prompt-engineer-pro-${VERSION}-source.zip"
+          unzip -l "dist/prompt-engineer-pro-${VERSION}.skill" | grep -q 'prompt-engineer-pro/SKILL.md'
+          unzip -l "dist/prompt-engineer-pro-${VERSION}.skill" | grep -q 'prompt-engineer-pro/references/System_Prompt_Guidelines.md'
+          unzip -l "dist/prompt-engineer-pro-${VERSION}-source.zip" | grep -q 'evals/evals.json'
+
+      - name: Upload workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: prompt-engineer-pro-v2.0.0
+          name: ${{ steps.meta.outputs.artifact_name }}
           path: |
-            dist/prompt-engineer-pro.skill
-            dist/prompt-engineer-pro-source.zip
+            dist/prompt-engineer-pro-${{ steps.meta.outputs.version }}.skill
+            dist/prompt-engineer-pro-${{ steps.meta.outputs.version }}-source.zip
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish stable GitHub Release assets
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Prompt Engineer Pro ${{ github.ref_name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            dist/prompt-engineer-pro-${{ steps.meta.outputs.version }}.skill
+            dist/prompt-engineer-pro-${{ steps.meta.outputs.version }}-source.zip
