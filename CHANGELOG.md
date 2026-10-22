@@ -2,7 +2,7 @@
 
 ## v2.0.0 — Source recovery, reusable prompts, and comparison mode
 
-- Restored the missing reference guides, domain templates, seven worked examples, and qualitative evaluation suite to the tracked source tree.
+- Restored the missing reference guides, domain templates, nine worked examples, and qualitative evaluation suite to the tracked source tree.
 - Added dedicated workflows for reusable system prompts and comparing prompt variants, addressing both P0 gaps documented in the v2.0 roadmap.
 - Added a 21-case qualitative regression suite and documented pass criteria.
 - Added a Python source-integrity validator and GitHub Actions workflow to check referenced files and evaluation-suite structure on pushes and pull requests.
