@@ -51,10 +51,10 @@ If the underlying request is for something that shouldn't be fulfilled regardles
 ```
 prompt-engineer-pro/
 ├── SKILL.md                    Entry point — workflow, triggers, output template
-├── references/                 22 reference files, loaded as needed (progressive disclosure)
+├── references/                 23 reference files, loaded as needed (progressive disclosure)
 │   └── Domain_Templates/       Writing, Coding, Research, Marketing
 ├── examples/                   7 worked walkthroughs, including the trickiest edge cases
-├── evals/                      20 test prompts + qualitative pass criteria (dev-only)
+├── evals/                      21 test prompts + qualitative pass criteria (dev-only)
 ├── MANIFEST.md                 Full file listing + key design decisions
 ├── CHANGELOG.md                Version history
 ├── ROADMAP.md                  Prioritized v2.0 feature roadmap
@@ -63,7 +63,7 @@ prompt-engineer-pro/
 └── LICENSE                     MIT
 ```
 
-See `MANIFEST.md` for the full file-by-file breakdown and the design decisions behind them (adaptive output, conditional output sections, no fabricated precision).
+Reusable system-prompt design and prompt-variant comparison have dedicated workflows. See `MANIFEST.md` for the full file-by-file breakdown and the design decisions behind them (adaptive output, conditional output sections, no fabricated precision).
 
 ## Contributing
 
