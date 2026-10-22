@@ -11,17 +11,14 @@ This is a working list, not a promise — items move, merge, or get dropped as r
 
 ---
 
-## P0 — Known gaps with a concrete failure mode
+## P0 — Completed in v2.0.0
 
-### 1. Reusable / system-prompt mode
-**The gap:** Eval 20 (v1.2) exposes this directly — the skill has no dedicated handling for prompts that aren't one-off tasks but persistent instructions governing many future, unknown inputs (system prompts, agent instructions, bot personas). Right now it applies one-off-task heuristics (audience, single success criterion, one desired output) to something that actually needs robustness across a distribution of future inputs it can't see.
-**What "done" looks like:** A `references/System_Prompt_Guidelines.md` covering what changes: scope boundaries (what's explicitly out of scope, not just what's in scope), behavior under adversarial or off-topic input, consistency across many invocations rather than one, and how "success" for a reusable prompt is closer to Prompt_Quality_Heuristics #10 (edge cases) than to a single deliverable's success criteria. `Domain_Detection.md` should be able to flag "this reads like a system prompt" as a signal independent of topic domain.
-**Why P0, not P1:** It's the one gap this release's own eval suite documents as unaddressed rather than fixed — shipping v2.0 without it means the eval stays red on purpose.
+The two previously documented P0 gaps now have dedicated workflows, reference guidance, and regression cases:
 
-### 2. Prompt-comparison mode ("which of these is better")
-**The gap:** The entire skill assumes one prompt in, one (tiered) prompt out. A user handing over two or three prompt variants and asking which to use, or how they differ, doesn't fit the AIM workflow — it would currently either get analyzed as if only one mattered, or handled ad hoc with no consistent format.
-**What "done" looks like:** A lightweight comparison path: score each variant independently using the existing rubric, then a short head-to-head on the dimensions that actually differ (don't repeat identical scores), plus a recommendation. Reuses `Prompt_Evaluation_Framework.md` rather than inventing new scoring — this is a new *output shape*, not new judgment criteria.
-**Why P0:** It's a natural, likely-common request ("I wrote it two ways, which is better?") that the skill's own description doesn't currently claim to handle, so it's either silently mishandled or silently out of scope — worth resolving one way or the other.
+- **Reusable/system-prompt mode:** `references/System_Prompt_Guidelines.md` defines persistent scope, operating rules, boundaries, uncertainty, escalation, and test coverage. The skill's mode detection routes reusable assistant instructions to this guide; eval 20 covers the distinction from one-off prompts.
+- **Prompt-comparison mode:** `references/Prompt_Comparison_Guidelines.md` defines shared-criteria comparison, evidence-based recommendations, and when empirical testing is required. Eval 21 covers a comparison case.
+
+These are implemented in the source tree. The qualitative suite and repository integrity workflow are in place; model-output evaluation remains a manual review process rather than a claim of automated quality scoring.
 
 ---
 
