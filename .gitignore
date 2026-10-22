@@ -16,3 +16,6 @@ venv/
 # Local eval run artifacts (not source-controlled — see evals/ for the fixed test suite)
 *-workspace/
 feedback.json
+
+# Generated release packages
+dist/

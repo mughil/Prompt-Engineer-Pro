@@ -18,7 +18,7 @@ Things like stale cross-references, inconsistent terminology across files, or an
 - Keep it general, not overfit to one example prompt you had in mind.
 
 ### New evals
-Always welcome, especially edge cases the current 20 don't cover. Add to `evals/evals.json` with a realistic prompt and a specific `expected_output` (what to check, not an exact string match — outputs here are judgment-based). Add a corresponding row to `evals/EXPECTED_RESULTS.md`.
+Always welcome, especially edge cases the current 21 don't cover. Add to `evals/evals.json` with a realistic prompt and a specific `expected_output` (what to check, not an exact string match — outputs here are judgment-based). Add a corresponding row to `evals/EXPECTED_RESULTS.md`.
 
 ### New examples
 Worth adding when a behavior is easy to state as a rule but easy to get subtly wrong in practice — that's exactly why `Contradiction_And_Impossibility.md` and `Confidence_Calibration.md` exist (rules alone weren't enough; a worked example was). Follow the existing examples' format: original prompt, score/assessment, the tiered output, and an "Improvements Made" section with reasons.
@@ -37,6 +37,7 @@ This project follows the [skill-creator](https://github.com/anthropics/skills) m
 2. Run the existing prompts in `evals/evals.json` through the updated skill (manually, or with an agent that has both the skill and subagent access).
 3. Check outputs against `evals/EXPECTED_RESULTS.md`'s pass criteria — these are qualitative (judgment-based), not exact-match assertions.
 4. If your change is a new capability, add a new eval for it in the same PR — a feature without an eval is much more likely to regress silently later.
+5. Run `python scripts/validate_repo.py` locally. GitHub Actions also runs this integrity check on pushes and pull requests.
 
 ## Style
 
@@ -49,6 +50,6 @@ This project follows the [skill-creator](https://github.com/anthropics/skills) m
 This project uses `MAJOR.MINOR.PATCH`:
 - **PATCH** — drift fixes, documentation corrections, no behavior change (e.g., v1.1.1).
 - **MINOR** — new evals, new examples, new reference content, behavior refinements that don't change the core workflow (e.g., v1.2.0's Step 0 addition).
-- **MAJOR** — new workflow modes (e.g., system-prompt mode, comparison mode — see `ROADMAP.md`'s P0/P1 items, which are v2.0-targeted).
+- **MAJOR** — new workflow modes, such as reusable system-prompt mode and prompt-comparison mode.
 
 Add an entry to `CHANGELOG.md` for every change that ships, and update `MANIFEST.md`'s structure listing if you add or remove a file.

@@ -1,4 +1,4 @@
-# Manifest — prompt-engineer-pro v1.2.0
+# Manifest — prompt-engineer-pro v2.0.0
 
 ## Structure
 
@@ -31,6 +31,8 @@ prompt-engineer-pro/
 │   ├── Chain_of_Thought_Guidelines.md    When and how to prompt for explicit reasoning
 │   ├── Prompt_Safety_Guidelines.md       The optimize-vs-decline boundary
 │   ├── Optimization_Confidence.md        v1.1: how confident the *rewrite* is, and what would raise it
+│   ├── System_Prompt_Guidelines.md       Reusable system prompts for persistent assistant behavior
+│   ├── Prompt_Comparison_Guidelines.md   Compare variants using shared criteria
 │   └── Domain_Templates/
 │       ├── Writing.md
 │       ├── Coding.md
@@ -43,15 +45,17 @@ prompt-engineer-pro/
 │   ├── Image_Generation.md               Model-specific (Midjourney) optimization
 │   ├── Safety_Boundary.md                Decline case
 │   ├── Contradiction_And_Impossibility.md  v1.1: naming conflicts vs. flagging true impossibility
-│   └── Confidence_Calibration.md         v1.1: honest Medium/Low confidence, refusing to fabricate a model version
-└── evals/
-    ├── evals.json                        20 test prompts covering the core scenarios plus v1.1/v1.2 edge cases
+│   ├── Confidence_Calibration.md         v1.1: honest Medium/Low confidence, refusing to fabricate a model version
+│   ├── Reusable_System_Prompt.md         Reusable assistant instructions with policy and escalation placeholders
+│   └── Prompt_Comparison.md              Shared-criteria comparison with a validation plan
+├── evals/
+    ├── evals.json                        21 test prompts covering core scenarios, system prompts, and prompt comparison
     └── EXPECTED_RESULTS.md               Qualitative pass criteria per eval
 ```
 
 ## Status
 
-All reference files are fully implemented (none are stub/placeholder). Domain template coverage remains v1 (Writing, Coding, Research, Marketing) — additional domains are P2 on `ROADMAP.md`, deliberately not v2.0-committed yet.
+All 23 reference files are present and written as guidance (none are intentionally stub/placeholder). Domain template coverage remains v1 (Writing, Coding, Research, Marketing) — additional domains remain P2 on `ROADMAP.md`.
 
 ## Design decisions worth knowing about
 
