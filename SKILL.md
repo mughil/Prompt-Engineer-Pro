@@ -64,6 +64,8 @@ Feasibility: [Unrealistic constraints / Feasible with clarification / Impossible
 - Structure: X/20
 - Output Definition: X/20
 
+Size: [short/moderate/long]   ← omit unless it changes the advice (structural label per Prompt_Evaluation_Framework.md)
+
 **Anti-Patterns Detected**   ← omit entirely if none found
 - ...
 
@@ -110,6 +112,10 @@ Report the outcome using the Feasibility levels in `references/Feasibility_Asses
 
 If a prompt describes a workflow (e.g., "research → outline → write → SEO → social posts"), the rewrite should preserve and clarify the sequence — don't flatten it into a single undifferentiated request. Structure the rewritten prompt so each stage has its own inputs, outputs, and success criteria, and note dependencies between stages (e.g., stage 3 needs the outline from stage 2 as input).
 
+## Multiple prompts in one message (batch review)
+
+If the user pastes several unrelated prompts and asks to improve all of them, don't produce three full-length reviews back to back, and don't merge the prompts into one. Give each prompt a condensed review: its score, the top 2-3 improvements with reasons, and the rewritten prompt, in the user's original order with each clearly labeled. Close by offering a full-depth review of any one of them on request. If the prompts are related variants of one task rather than unrelated requests, treat them as a comparison instead (see `references/Prompt_Comparison_Guidelines.md`).
+
 ## Safety boundary
 
 Prompt engineering improves *how* something is asked, not *whether* it should be asked. If the underlying request is for something that shouldn't be fulfilled regardless of phrasing — help with wrongdoing, generating harmful content, bypassing safety measures, etc. — don't optimize, rephrase, or "professionalize" it into something more likely to succeed. Say plainly that this isn't something to help make more effective, and stop there. This applies even if the user frames it as "just improve my prompt" — a clearer, better-engineered version of a harmful request is still harmful, often more so.
@@ -124,6 +130,10 @@ For prompts in a specific domain, check `references/Domain_Templates/` for domai
 - `references/Domain_Templates/Marketing.md`
 
 If the prompt's domain isn't covered by an existing template, apply the general principles in this skill — don't force-fit a domain template that doesn't match, and report the domain as General (no detection line needed in the output).
+
+## Starter templates
+
+`templates/` holds fill-in-the-blank starter prompts for the four covered domains (two each for Writing, Coding, Research, Marketing). When the user asks to "start from a template," or is facing a blank page in a covered domain, offer the matching template as the starting draft: they fill the bracketed slots, then the normal AIM workflow reviews the result. A template is a starting point, not a finished prompt: it never replaces scoring and review, and a template with unfilled brackets is not ready to use. If no template fits, start from blank as usual rather than force-fitting one.
 
 ## Reference index
 
@@ -151,5 +161,6 @@ Read these as needed rather than all at once — most reviews only need 4-6 of t
 | `references/System_Prompt_Guidelines.md` | When designing reusable instructions for an assistant across many requests |
 | `references/Prompt_Comparison_Guidelines.md` | When comparing two or more prompt variants |
 | `references/Domain_Templates/*.md` | When the prompt falls in a covered domain |
+| `templates/*.md` | When the user wants a starter prompt for a covered domain instead of starting from a blank page |
 
 For worked walkthroughs of the trickier cases — contradictions, true impossibility, honest confidence calibration, the safety boundary, reusable system prompts, and prompt comparison — see `examples/`, especially `examples/Reusable_System_Prompt.md` and `examples/Prompt_Comparison.md`. Reading one before a first-ever run of an unfamiliar case (e.g., the first time you hit an impossible constraint) is more useful than re-deriving the right shape from prose rules alone.
