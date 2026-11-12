@@ -13,3 +13,15 @@ Suggested anchors per dimension: 0–4 absent or actively confusing; 5–9 major
 Interpretation: 0–60 Poor; 61–85 Average; 86–100 Excellent. Use judgment when one critical omission materially undermines the prompt; explain any score that seems surprising. Do not imply scores predict model performance or are objectively measured.
 
 A text breakdown is the default. A radar chart is optional only when visualization is supported and useful; never let a chart replace the written explanation.
+
+## Qualitative size label (optional)
+
+Alongside the score you may add a one-word structural size label:
+
+- **short**: a single ask with little or no provided context
+- **moderate**: several asks, or one ask with substantial context such as examples or source material
+- **long**: a multi-stage workflow or extensive context blocks
+
+Judge the structure, not the word count: a two-sentence prompt describing a five-stage workflow is long; a page of context feeding one question is moderate. Never convert this label into token counts or other exact numbers. A static review cannot measure those, and a fabricated figure is worse than none (see `ROADMAP.md`).
+
+Use the label only when it changes the advice. For example, when a long prompt needs decomposition rather than polish, or a short one needs gaps filled rather than restructuring. Omit it when it adds nothing.
