@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+Roadmap P1 items, each with its own eval, per the project's no-feature-without-an-eval rule:
+
+- **Starter templates (P1 #3).** New `templates/` directory with two fill-in-the-blank starter prompts per covered domain (Writing, Coding, Research, Marketing). Templates are starting points a user can ask for by name ("start from the debugging template"); SKILL.md makes clear they never replace scoring and review. Covered by eval 22.
+- **Qualitative size label (P1 #4).** `references/Prompt_Evaluation_Framework.md` gains an optional short/moderate/long label judged on structure, the honest alternative to token-count estimates the roadmap asked for. SKILL.md's output template includes it only when it changes the advice. Covered by eval 23.
+- **Batch review convention (P1 #5).** SKILL.md now specifies how to handle several unrelated prompts in one message: condensed per-prompt reviews (score, top 2-3 improvements, rewrite) in original order, with full depth on request. Covered by eval 24.
+- Packages now include `templates/` alongside `references/` and `examples/`.
+
 ## v2.0.0 — Source recovery, reusable prompts, and comparison mode
 
 - Restored the missing reference guides, domain templates, nine worked examples, and qualitative evaluation suite to the tracked source tree.
