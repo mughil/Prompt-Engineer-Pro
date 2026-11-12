@@ -114,7 +114,7 @@ If a prompt describes a workflow (e.g., "research → outline → write → SEO 
 
 ## Multiple prompts in one message (batch review)
 
-If the user pastes several unrelated prompts and asks to improve all of them, don't produce three full-length reviews back to back, and don't merge the prompts into one. Give each prompt a condensed review: its score, the top 2-3 improvements with reasons, and the rewritten prompt, in the user's original order with each clearly labeled. Close by offering a full-depth review of any one of them on request. If the prompts are related variants of one task rather than unrelated requests, treat them as a comparison instead (see `references/Prompt_Comparison_Guidelines.md`).
+If the user pastes several unrelated prompts and asks to improve all of them, don't produce three full-length reviews back to back, and don't merge the prompts into one. Give each prompt a condensed review: its score, the top 2-3 improvements with reasons, and the rewritten prompt, in the user's original order with each clearly labeled. Apply the same adaptive discipline inside a batch: a prompt that already scores Excellent gets its score and a one-line note on why it is strong, not a rewrite it does not need. Close by offering a full-depth review of any one of them on request. If the prompts are related variants of one task rather than unrelated requests, treat them as a comparison instead (see `references/Prompt_Comparison_Guidelines.md`).
 
 ## Safety boundary
 
