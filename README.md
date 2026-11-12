@@ -27,7 +27,7 @@ Every section of the output is conditional: a short, clean prompt that's already
 1. Open the project's [GitHub Releases](https://github.com/mughil/Prompt-Engineer-Pro/releases) page.
 2. Open the latest stable release and download the `prompt-engineer-pro-vX.Y.Z.skill` asset. Download the source ZIP only if you need the development files.
 3. Use the `.skill` package only in a Claude environment that supports importing skill packages. Follow that environment's current skill-installation instructions.
-4. If your Claude environment expects a skills folder instead, extract the package and place the `prompt-engineer-pro/` folder in that environment's configured skills directory. The folder should contain `SKILL.md`, `references/`, and `examples/`.
+4. If your Claude environment expects a skills folder instead, extract the package and place the `prompt-engineer-pro/` folder in that environment's configured skills directory. The folder should contain `SKILL.md`, `references/`, `examples/`, and `templates/`.
 5. Enable the skill if the host environment requires it, then start a new conversation and try the test prompt below.
 
 The exact installation UI and supported import methods can vary by Claude product and account. If your environment does not offer skill import or a configured skills directory, do not assume the package can be installed there.
@@ -75,7 +75,8 @@ The installed skill should have this structure:
 prompt-engineer-pro/
 ├── SKILL.md
 ├── references/
-└── examples/
+├── examples/
+└── templates/
 ```
 
 The `evals/` folder is development-only and should be excluded from the installed skill package.
@@ -102,7 +103,8 @@ prompt-engineer-pro/
 ├── references/                 23 reference files, loaded as needed (progressive disclosure)
 │   └── Domain_Templates/       Writing, Coding, Research, Marketing
 ├── examples/                   9 worked walkthroughs, including the trickiest edge cases
-├── evals/                      21 test prompts + qualitative pass criteria (dev-only)
+├── templates/                  8 fill-in-the-blank starter prompts, two per covered domain
+├── evals/                      24 test prompts + qualitative pass criteria (dev-only)
 ├── MANIFEST.md                 Full file listing + key design decisions
 ├── CHANGELOG.md                Version history
 ├── ROADMAP.md                  Prioritized v2.0 feature roadmap

@@ -39,7 +39,7 @@ jobs:
         run: |
           mkdir -p dist/prompt-engineer-pro
           cp SKILL.md dist/prompt-engineer-pro/
-          cp -R references examples dist/prompt-engineer-pro/
+          cp -R references examples templates dist/prompt-engineer-pro/
 
       - name: Build skill and source archives
         env:
@@ -50,7 +50,7 @@ jobs:
           cd ..
           zip -qr "dist/prompt-engineer-pro-${VERSION}-source.zip" \
             SKILL.md README.md LICENSE MANIFEST.md CHANGELOG.md RELEASE_NOTES.md ROADMAP.md CONTRIBUTING.md .gitignore \
-            references examples evals scripts .github
+            references examples templates evals scripts .github
 
       - name: Validate generated archives
         env:
@@ -60,6 +60,7 @@ jobs:
           unzip -t "dist/prompt-engineer-pro-${VERSION}-source.zip"
           unzip -l "dist/prompt-engineer-pro-${VERSION}.skill" | grep -q 'prompt-engineer-pro/SKILL.md'
           unzip -l "dist/prompt-engineer-pro-${VERSION}.skill" | grep -q 'prompt-engineer-pro/references/System_Prompt_Guidelines.md'
+          unzip -l "dist/prompt-engineer-pro-${VERSION}.skill" | grep -q 'prompt-engineer-pro/templates/Coding_Debugging.md'
           unzip -l "dist/prompt-engineer-pro-${VERSION}-source.zip" | grep -q 'evals/evals.json'
 
       - name: Upload workflow artifact

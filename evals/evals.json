@@ -127,6 +127,24 @@
       "name": "Prompt comparison",
       "prompt": "Compare these two prompts and tell me which is better for the same task: A) 'Summarize this report.' B) 'Summarize the attached report for a nontechnical executive in five bullets, noting key risks and recommended next steps.'",
       "expected_output": "Compares goal alignment and clarity, explains why B is more specified for the stated audience and output, avoids claiming empirical performance without testing, and may recommend B conditionally."
+    },
+    {
+      "id": 22,
+      "name": "Starter template request",
+      "prompt": "Start from the debugging template: my Flask API returns 500s on the /login route.",
+      "expected_output": "Offers or adapts the Coding debugging starter template as the base, asks for or clearly labels the missing details (exact error/logs, reproduction steps, versions), and does not run a full blank-prompt review as if no template existed. Treats the template as a starting point, not a finished prompt."
+    },
+    {
+      "id": 23,
+      "name": "Structural size label",
+      "prompt": "Review this prompt: 'Research our three competitors, compare their pricing tiers in a table, then write a 1,000-word summary for our sales team with recommended counter-positions.'",
+      "expected_output": "Includes a qualitative size label (long or multi-stage) justified by structure, with no token-count or other fabricated numeric estimate; the label informs the advice (e.g. preserving and clarifying the workflow stages)."
+    },
+    {
+      "id": 24,
+      "name": "Batch prompt review",
+      "prompt": "Improve all three: 1) 'Write a birthday email to my boss.' 2) 'Explain recursion simply.' 3) 'Summarize this PDF for a 10-year-old.'",
+      "expected_output": "Gives each prompt a separate condensed review (score, top 2-3 improvements with reasons, rewritten prompt) in the original order, without merging the prompts or padding into three full-length reports; offers a full-depth review of any one on request."
     }
   ]
 }

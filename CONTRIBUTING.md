@@ -18,7 +18,7 @@ Things like stale cross-references, inconsistent terminology across files, or an
 - Keep it general, not overfit to one example prompt you had in mind.
 
 ### New evals
-Always welcome, especially edge cases the current 21 don't cover. Add to `evals/evals.json` with a realistic prompt and a specific `expected_output` (what to check, not an exact string match — outputs here are judgment-based). Add a corresponding row to `evals/EXPECTED_RESULTS.md`.
+Always welcome, especially edge cases the current 24 don't cover. Add to `evals/evals.json` with a realistic prompt and a specific `expected_output` (what to check, not an exact string match — outputs here are judgment-based). Add a corresponding row to `evals/EXPECTED_RESULTS.md`.
 
 ### New examples
 Worth adding when a behavior is easy to state as a rule but easy to get subtly wrong in practice — that's exactly why `Contradiction_And_Impossibility.md` and `Confidence_Calibration.md` exist (rules alone weren't enough; a worked example was). Follow the existing examples' format: original prompt, score/assessment, the tiered output, and an "Improvements Made" section with reasons.
