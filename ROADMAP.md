@@ -22,7 +22,11 @@ These are implemented in the source tree. The qualitative suite and repository i
 
 ---
 
-## P1 — Clear value, not yet urgent
+## P1 — Implemented in source (unreleased)
+
+The three P1 items below are implemented in the source tree (see CHANGELOG's Unreleased section): starter templates in `templates/` (eval 22), the qualitative size label in `references/Prompt_Evaluation_Framework.md` (eval 23), and the batch-review convention in SKILL.md (eval 24). They move to a release section once a version tag is cut.
+
+### Original P1 descriptions (kept for context)
 
 ### 3. Prompt library / starter templates by domain
 Deferred from v1.1 as "v3-scale scope" — revisit at smaller scope for v2.0: not a full library across Legal/Healthcare/Finance/PM, but 1-2 starter templates per *existing* domain (Writing, Coding, Research, Marketing) as optional starting points a user can point to ("start from the SEO template") rather than always starting from a blank prompt. Meaningfully smaller than the original ask and reuses domains already built out.
