@@ -25,6 +25,9 @@ This suite is reviewed qualitatively. Do not compare exact wording. A case passe
 | 19 | Non-English prompt | Handles the language appropriately without misclassification. |
 | 20 | Reusable system prompt | Recognizes persistent instructions and covers scope, policy, tone, and escalation. |
 | 21 | Prompt comparison | Compares against shared criteria, explains trade-offs, and avoids unsupported performance claims. |
+| 22 | Starter template request | Uses the matching starter template as the base and labels assumptions; no blank-prompt full review. |
+| 23 | Structural size label | Qualitative label tied to structure; no token estimates; the label informs the advice. |
+| 24 | Batch prompt review | Condensed per-prompt reviews in original order, no merging or padding; offers full depth on one. |
 
 ## How to run a review
 
