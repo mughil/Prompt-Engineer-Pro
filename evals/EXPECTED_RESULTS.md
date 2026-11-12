@@ -27,7 +27,7 @@ This suite is reviewed qualitatively. Do not compare exact wording. A case passe
 | 21 | Prompt comparison | Compares against shared criteria, explains trade-offs, and avoids unsupported performance claims. |
 | 22 | Starter template request | Uses the matching starter template as the base and labels assumptions; no blank-prompt full review. |
 | 23 | Structural size label | Qualitative label tied to structure; no token estimates; the label informs the advice. |
-| 24 | Batch prompt review | Condensed per-prompt reviews in original order, no merging or padding; offers full depth on one. |
+| 24 | Batch prompt review | Condensed per-prompt reviews in original order, no merging or padding; an already-excellent prompt in the batch may get score + note only; offers full depth on one. |
 
 ## How to run a review
 
