@@ -1,4 +1,4 @@
-# Manifest — prompt-engineer-pro v2.0.0
+# Manifest — prompt-engineer-pro v2.1.0 (unreleased)
 
 ## Structure
 
@@ -48,14 +48,23 @@ prompt-engineer-pro/
 │   ├── Confidence_Calibration.md         v1.1: honest Medium/Low confidence, refusing to fabricate a model version
 │   ├── Reusable_System_Prompt.md         Reusable assistant instructions with policy and escalation placeholders
 │   └── Prompt_Comparison.md              Shared-criteria comparison with a validation plan
+├── templates/
+│   ├── Writing_Blog_Post.md              v2.1: starter prompt - drafting an article from scratch
+│   ├── Writing_Edit_Pass.md              v2.1: starter prompt - editing an existing draft
+│   ├── Coding_New_Feature.md             v2.1: starter prompt - scoped feature/change request
+│   ├── Coding_Debugging.md               v2.1: starter prompt - cause + minimal fix
+│   ├── Research_Question.md              v2.1: starter prompt - decision-oriented research
+│   ├── Research_Review.md                v2.1: starter prompt - evidence review with contested points flagged
+│   ├── Marketing_SEO_Content.md          v2.1: starter prompt - intent-matched SEO page
+│   └── Marketing_Ad_Copy.md              v2.1: starter prompt - ad variants by angle
 ├── evals/
-    ├── evals.json                        21 test prompts covering core scenarios, system prompts, and prompt comparison
+    ├── evals.json                        24 test prompts covering core scenarios, system prompts, comparison, templates, size label, batch
     └── EXPECTED_RESULTS.md               Qualitative pass criteria per eval
 ```
 
 ## Status
 
-All 23 reference files are present and written as guidance (none are intentionally stub/placeholder). Domain template coverage remains v1 (Writing, Coding, Research, Marketing) — additional domains remain P2 on `ROADMAP.md`.
+All 23 reference files are present and written as guidance (none are intentionally stub/placeholder). Domain template coverage remains v1 (Writing, Coding, Research, Marketing) — additional domains remain P2 on `ROADMAP.md`. Eight starter templates live in `templates/` (two per covered domain); they are starting points, not finished prompts, and additional domains remain P2 on `ROADMAP.md`.
 
 ## Design decisions worth knowing about
 
