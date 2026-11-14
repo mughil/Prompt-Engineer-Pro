@@ -85,6 +85,8 @@ The `evals/` folder is development-only and should be excluded from the installe
 
 Once installed, it triggers automatically when you ask to improve, rewrite, optimize, score, or critique a prompt — including "engineer this prompt," "make this better for [model]," or pasting a rough prompt and asking how to sharpen it. See the `description` field in `SKILL.md` for the exact trigger conditions, including what it deliberately does *not* trigger on (e.g., "write me a prompt for X" is a content request, not a prompt-engineering request).
 
+Automatic triggering depends on the host's skill selection and varies by account and request. If a request like these doesn't load the skill on its own, invoke it by name: `Use the prompt-engineer-pro skill to improve this prompt: ...`. Explicit invocation is the recommended fallback — in testing it loaded the skill where the same requests without it did not.
+
 **Example:**
 
 > Use Prompt Engineer Pro on: "write about the best running shoes"
