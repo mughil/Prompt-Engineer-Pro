@@ -138,7 +138,7 @@
       "id": 23,
       "name": "Structural size label",
       "prompt": "Review this prompt: 'Research our three competitors, compare their pricing tiers in a table, then write a 1,000-word summary for our sales team with recommended counter-positions.'",
-      "expected_output": "Includes a qualitative size label (long or multi-stage) justified by structure, with no token-count or other fabricated numeric estimate; the label informs the advice (e.g. preserving and clarifying the workflow stages)."
+      "expected_output": "Preserves and clarifies the multi-stage workflow in the rewrite (each stage keeps its inputs, outputs and success criteria), with no token-count or other fabricated numeric estimate. A qualitative size label (long) may accompany this when it informs the advice; per SKILL.md the label is omitted when it would not change the advice, so its absence is not a failure when the structural advice is given."
     },
     {
       "id": 24,
