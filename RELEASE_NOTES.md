@@ -1,5 +1,21 @@
 # Release Notes
 
+## v2.1.1
+
+A one-paragraph fix to SKILL.md Step 1 covering two reusable-prompt review modes that real use kept hitting:
+
+- **Prompts whose materials are attached at run time.** A reusable task prompt (for example, a weekly "analyze the attached export" instruction) was being penalized because the attachment wasn't there at review time. A missing attachment alone is no longer a reason to downgrade a clear instruction or expand it into several tiers; the skill preserves the scope and uses light-touch polish for an already-clear request.
+- **Starter-template requests.** "Start from the debugging template" is not a review request. The skill now fills the template from what the user gave, labels its assumptions, and does not score the request itself or expand it into tiers.
+
+## v2.1.0
+
+Three roadmap P1 features, each with its own eval:
+
+- **Starter templates.** Eight fill-in-the-blank starter prompts in a new `templates/` folder — two each for Writing, Coding, Research and Marketing. A template is a starting point, never a replacement for scoring and review (eval 22).
+- **Qualitative size label.** `references/Prompt_Evaluation_Framework.md` gains an optional short/moderate/long label judged on structure — the honest alternative to the token-count estimates the roadmap asked for. It appears only when it changes the advice (eval 23).
+- **Batch review convention.** Several unrelated prompts in one message get condensed per-prompt reviews (score, top improvements with reasons, rewrite) in the original order, with full depth on request. An already-excellent prompt in a batch gets its score and a one-line note, not a rewrite it doesn't need (eval 24).
+- Packages now include `templates/` alongside `references/` and `examples/`.
+
 ## v2.0.0
 
 This release restores the missing tracked source files and implements the two P0 workflow gaps from the roadmap.
