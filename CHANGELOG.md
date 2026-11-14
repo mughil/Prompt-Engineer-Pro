@@ -1,12 +1,16 @@
 # Changelog
 
-## Unreleased
+## v2.1.1 — Reusable-prompt Step 1 clarification
+
+- **Fixed two reusable-prompt review modes that were being mishandled** (SKILL.md Step 1). A task prompt whose runtime materials (code, documents, data) are attached when the prompt is used later: a missing attachment alone is not a reason to downgrade a clear instruction or expand it into several tiers — preserve the existing scope, add a short input placeholder or reminder if useful, and use light-touch polish for an already-clear request; if the user wants the task executed now, ask for the missing material instead. And a request to start from a starter template is not a review request: fill the template from what the user gave, label the assumptions, and do not score the request itself or expand it into tiers. Covered by eval 22.
+
+## v2.1.0 — Starter templates, size labels, batch review
 
 Roadmap P1 items, each with its own eval, per the project's no-feature-without-an-eval rule:
 
 - **Starter templates (P1 #3).** New `templates/` directory with two fill-in-the-blank starter prompts per covered domain (Writing, Coding, Research, Marketing). Templates are starting points a user can ask for by name ("start from the debugging template"); SKILL.md makes clear they never replace scoring and review. Covered by eval 22.
 - **Qualitative size label (P1 #4).** `references/Prompt_Evaluation_Framework.md` gains an optional short/moderate/long label judged on structure, the honest alternative to token-count estimates the roadmap asked for. SKILL.md's output template includes it only when it changes the advice. Covered by eval 23.
-- **Batch review convention (P1 #5).** SKILL.md now specifies how to handle several unrelated prompts in one message: condensed per-prompt reviews (score, top 2-3 improvements, rewrite) in original order, with full depth on request. Covered by eval 24.
+- **Batch review convention (P1 #5).** SKILL.md now specifies how to handle several unrelated prompts in one message: condensed per-prompt reviews (score, top 2-3 improvements, rewrite) in original order, with full depth on request. A prompt in the batch that already scores Excellent gets its score and a one-line note on why it is strong, not a rewrite it does not need. Covered by eval 24.
 - Packages now include `templates/` alongside `references/` and `examples/`.
 
 ## v2.0.0 — Source recovery, reusable prompts, and comparison mode
