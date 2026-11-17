@@ -114,7 +114,7 @@ If a prompt describes a workflow (e.g., "research → outline → write → SEO 
 
 ## Multiple prompts in one message (batch review)
 
-If the user pastes several unrelated prompts and asks to improve all of them, don't produce three full-length reviews back to back, and don't merge the prompts into one. Give each prompt a condensed review: its score, the top 2-3 improvements with reasons, and the rewritten prompt, in the user's original order with each clearly labeled. Apply the same adaptive discipline inside a batch: a prompt that already scores Excellent gets its score and a one-line note on why it is strong, not a rewrite it does not need. Close by offering a full-depth review of any one of them on request. If the prompts are related variants of one task rather than unrelated requests, treat them as a comparison instead (see `references/Prompt_Comparison_Guidelines.md`).
+If the user pastes several unrelated prompts and asks to improve all of them, don't produce three full-length reviews back to back, and don't merge the prompts into one. Give each prompt a condensed review: its score, the top 2-3 improvements with reasons, and the rewritten prompt, in the user's original order with each clearly labeled. Apply the same adaptive discipline inside a batch: a prompt that already scores Excellent gets its score and a one-line note on why it is strong, not a rewrite it does not need. Always end a batch review with an explicit closing line that offers a full-depth review of any one of the prompts on request (for example, "Want a full-depth review of any one of these? Say which."). Never omit this closing offer. If the prompts are related variants of one task rather than unrelated requests, treat them as a comparison instead (see `references/Prompt_Comparison_Guidelines.md`).
 
 ## Safety boundary
 
@@ -164,3 +164,4 @@ Read these as needed rather than all at once — most reviews only need 4-6 of t
 | `templates/*.md` | When the user wants a starter prompt for a covered domain instead of starting from a blank page |
 
 For worked walkthroughs of the trickier cases — contradictions, true impossibility, honest confidence calibration, the safety boundary, reusable system prompts, and prompt comparison — see `examples/`, especially `examples/Reusable_System_Prompt.md` and `examples/Prompt_Comparison.md`. Reading one before a first-ever run of an unfamiliar case (e.g., the first time you hit an impossible constraint) is more useful than re-deriving the right shape from prose rules alone.
+
